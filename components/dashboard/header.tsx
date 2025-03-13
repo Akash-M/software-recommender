@@ -18,23 +18,31 @@ import { SidebarTrigger } from "@/components/ui/sidebar"
 export function DashboardHeader() {
   const pathname = usePathname()
 
-  // Extract the current route from the pathname
-  const getCurrentRoute = () => {
-    const path = pathname.split("/").filter(Boolean)
-    if (path.length <= 1) return "Dashboard"
-    return path[1].charAt(0).toUpperCase() + path[1].slice(1)
+  // Generate breadcrumb items based on the current path
+  const generateBreadcrumb = () => {
+    const segments = pathname.split("/").filter(Boolean)
+
+    if (segments.length <= 1) {
+      return "Dashboard"
+    }
+
+    // Format the breadcrumb path
+    return segments
+      .slice(1)
+      .map((segment) => segment.charAt(0).toUpperCase() + segment.slice(1))
+      .join(" / ")
   }
 
   return (
-    <header className="sticky top-0 z-40 border-b bg-background">
-      <div className="container flex h-16 items-center justify-between px-4">
+    <header className="sticky top-0 z-40 w-full border-b bg-background">
+      <div className="w-full flex h-16 items-center justify-between px-4">
         <div className="flex items-center gap-4">
           <SidebarTrigger className="md:hidden" />
           <Link href="/dashboard" className="flex items-center gap-2 font-bold">
             <Layers className="h-6 w-6" />
             <span>DevStack</span>
           </Link>
-          <span className="hidden text-sm text-muted-foreground md:inline-block">/ {getCurrentRoute()}</span>
+          <span className="hidden text-sm text-muted-foreground md:inline-block">/ {generateBreadcrumb()}</span>
         </div>
         <div className="flex items-center gap-4">
           <DropdownMenu>

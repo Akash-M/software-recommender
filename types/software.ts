@@ -1,4 +1,7 @@
-import type React from "react"
+import type { ReactNode } from "react"
+
+export type Domain = "web" | "mobile" | "desktop" | "cloud" | "iot"
+
 export interface Software {
   id: number
   name: string
@@ -6,6 +9,7 @@ export interface Software {
   description: string
   stars: number
   downloads: string
-  icon: React.ReactNode
+  icon: ReactNode
+  domains: Domain[]
 }
 

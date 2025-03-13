@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { BarChart, Code, Database, Home, Layers, Settings, Users } from "lucide-react"
+import { ChevronDown, Code, Database, Globe, Layers } from "lucide-react"
 import {
   Sidebar,
   SidebarContent,
@@ -12,6 +12,9 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  SidebarMenuSub,
+  SidebarMenuSubButton,
+  SidebarMenuSubItem,
   SidebarRail,
 } from "@/components/ui/sidebar"
 
@@ -22,90 +25,50 @@ export function DashboardSidebar() {
     return pathname === path
   }
 
+  // Check if any path under web is active
+  const isWebActive = pathname.includes("/dashboard/web")
+
   return (
     <Sidebar variant="floating" collapsible="icon" className="pt-16">
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>Navigation</SidebarGroupLabel>
+          <SidebarGroupLabel>Domains</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={isActive("/dashboard")}>
-                  <Link href="/dashboard">
-                    <Home className="h-4 w-4" />
-                    <span>Dashboard</span>
+                <SidebarMenuButton asChild isActive={isWebActive}>
+                  <Link href="/dashboard/web">
+                    <Globe className="h-4 w-4" />
+                    <span>Web</span>
+                    <ChevronDown className="ml-auto h-4 w-4" />
                   </Link>
                 </SidebarMenuButton>
-              </SidebarMenuItem>
-              <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={isActive("/dashboard/recommendations")}>
-                  <Link href="/dashboard/recommendations">
-                    <Layers className="h-4 w-4" />
-                    <span>Recommendations</span>
-                  </Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-              <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={isActive("/dashboard/analytics")}>
-                  <Link href="/dashboard/analytics">
-                    <BarChart className="h-4 w-4" />
-                    <span>Analytics</span>
-                  </Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
-        <SidebarGroup>
-          <SidebarGroupLabel>Categories</SidebarGroupLabel>
-          <SidebarGroupContent>
-            <SidebarMenu>
-              <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={isActive("/dashboard/frontend")}>
-                  <Link href="/dashboard/frontend">
-                    <Code className="h-4 w-4" />
-                    <span>Frontend</span>
-                  </Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-              <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={isActive("/dashboard/backend")}>
-                  <Link href="/dashboard/backend">
-                    <Database className="h-4 w-4" />
-                    <span>Backend</span>
-                  </Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-              <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={isActive("/dashboard/infrastructure")}>
-                  <Link href="/dashboard/infrastructure">
-                    <Layers className="h-4 w-4" />
-                    <span>Infrastructure</span>
-                  </Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
-        <SidebarGroup>
-          <SidebarGroupLabel>Account</SidebarGroupLabel>
-          <SidebarGroupContent>
-            <SidebarMenu>
-              <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={isActive("/dashboard/profile")}>
-                  <Link href="/dashboard/profile">
-                    <Users className="h-4 w-4" />
-                    <span>Profile</span>
-                  </Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-              <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={isActive("/dashboard/settings")}>
-                  <Link href="/dashboard/settings">
-                    <Settings className="h-4 w-4" />
-                    <span>Settings</span>
-                  </Link>
-                </SidebarMenuButton>
+                <SidebarMenuSub>
+                  <SidebarMenuSubItem>
+                    <SidebarMenuSubButton asChild isActive={isActive("/dashboard/web/frontend")}>
+                      <Link href="/dashboard/web/frontend">
+                        <Code className="h-4 w-4 mr-2" />
+                        Frontend
+                      </Link>
+                    </SidebarMenuSubButton>
+                  </SidebarMenuSubItem>
+                  <SidebarMenuSubItem>
+                    <SidebarMenuSubButton asChild isActive={isActive("/dashboard/web/backend")}>
+                      <Link href="/dashboard/web/backend">
+                        <Database className="h-4 w-4 mr-2" />
+                        Backend
+                      </Link>
+                    </SidebarMenuSubButton>
+                  </SidebarMenuSubItem>
+                  <SidebarMenuSubItem>
+                    <SidebarMenuSubButton asChild isActive={isActive("/dashboard/web/infrastructure")}>
+                      <Link href="/dashboard/web/infrastructure">
+                        <Layers className="h-4 w-4 mr-2" />
+                        Infrastructure
+                      </Link>
+                    </SidebarMenuSubButton>
+                  </SidebarMenuSubItem>
+                </SidebarMenuSub>
               </SidebarMenuItem>
             </SidebarMenu>
           </SidebarGroupContent>
