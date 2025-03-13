@@ -9,7 +9,7 @@ export const frontendData: Software[] = [
     description: "A JavaScript library for building user interfaces",
     stars: 203000,
     downloads: "15M+",
-    icon: <Code className="h-5 w-5" />,
+    icon: `<Code className="h-5 w-5" />`,
     domains: ["web", "mobile"],
   },
   {
@@ -19,7 +19,7 @@ export const frontendData: Software[] = [
     description: "The React framework for production",
     stars: 108000,
     downloads: "8M+",
-    icon: <Code className="h-5 w-5" />,
+    icon: `<Code className="h-5 w-5" />`,
     domains: ["web"],
   },
 ]

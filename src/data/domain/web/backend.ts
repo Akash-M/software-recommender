@@ -9,7 +9,7 @@ export const backendData: Software[] = [
     description: "Fast, unopinionated, minimalist web framework for Node.js",
     stars: 60000,
     downloads: "20M+",
-    icon: <Database className="h-5 w-5" />,
+    icon: `<Database className="h-5 w-5" />`,
     domains: ["web"],
   },
   {
@@ -19,7 +19,7 @@ export const backendData: Software[] = [
     description: "The web framework for perfectionists with deadlines",
     stars: 68000,
     downloads: "5M+",
-    icon: <Database className="h-5 w-5" />,
+    icon: `<Database className="h-5 w-5" />`,
     domains: ["web"],
   },
 ]

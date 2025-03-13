@@ -9,7 +9,7 @@ export const infrastructureData: Software[] = [
     description: "Empowering App Development for Developers",
     stars: 73000,
     downloads: "12M+",
-    icon: <Layers className="h-5 w-5" />,
+    icon: `<Layers className="h-5 w-5" />`,
     domains: ["web", "cloud"],
   },
   {
@@ -19,7 +19,7 @@ export const infrastructureData: Software[] = [
     description: "Production-Grade Container Orchestration",
     stars: 98000,
     downloads: "7M+",
-    icon: <Layers className="h-5 w-5" />,
+    icon: `<Layers className="h-5 w-5" />`,
     domains: ["web", "cloud"],
   },
 ]
